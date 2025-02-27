@@ -1,29 +1,74 @@
-# main project readmefile goes here
+# Python Scripts for Spreadsheet Manipulation
 
-# include this sections 
-## Requirements
-1. Python 3:
+Este repositorio contiene scripts de Python diseñados para manipular hojas de cálculo en formatos ODS y XLSX. A continuación, se detalla la metodología recomendada para ejecutar los scripts, así como la estructura del proyecto y los requisitos necesarios.
+
+## Estructura del Proyecto
+
+```
+.
+├── LICENSE
+├── README.md
+├── mx_zip_colony/
+│   ├── README.md
+│   ├── __init__.py
+│   └── main.py
+├── ods_batch/
+│   ├── README.md
+│   ├── __init__.py
+│   └── main.py
+├── ods_clear_values/
+│   └── main.py
+├── ods_column_snf/
+│   └── main.py
+├── ods_file_column_fnr/
+│   └── main.py
+├── ods_generate_externalID/
+│   └── main.py
+├── ods_uom/
+│   └── main.py
+└── requirements.txt
+```
+
+## Metodología para Ejecutar los Scripts
+
+1. **Requisitos Previos**: Asegúrate de tener Python 3 instalado en tu sistema. Puedes verificar la versión de Python ejecutando:
    ```bash
    python3 --version
    ```
 
-## Installation
-1. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   ```
-2. Activate the virtual environment:
-   - On Windows:
+2. **Instalación de Dependencias**:
+   - **Crear un entorno virtual** (opcional pero recomendado):
      ```bash
-     venv\Scripts\activate
+     python -m venv venv
      ```
-   - On macOS and Linux:
+   - **Activar el entorno virtual**:
+     - En Windows:
+       ```bash
+       venv\Scripts\activate
+       ```
+     - En macOS y Linux:
+       ```bash
+       source venv/bin/activate
+       ```
+   - **Instalar las dependencias del proyecto**:
      ```bash
-     source venv/bin/activate
+     pip install -r requirements.txt
      ```
-3. Install the project dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
+3. **Ejecutar los Scripts**:
+   - Navega a la carpeta del script que deseas ejecutar. Por ejemplo, para ejecutar el script en `mx_zip_colony`:
+     ```bash
+     cd mx_zip_colony
+     python main.py
+     ```
+   - Asegúrate de tener los archivos de hoja de cálculo necesarios en la ubicación correcta según lo especificado en cada script.
+
+## Notas Adicionales
+
+- Cada carpeta de script contiene un archivo `README.md` que proporciona información específica sobre el script y su uso.
+- Se recomienda revisar la documentación de cada script para entender su funcionalidad y los parámetros que puede aceptar.
+
+## Contribuciones
+
+Si deseas contribuir a este proyecto, no dudes en abrir un issue o enviar un pull request. ¡Agradecemos cualquier mejora o sugerencia!
 
