@@ -1,6 +1,8 @@
 # Python Scripts for Spreadsheet Manipulation
 
-Este repositorio contiene scripts de Python diseñados para manipular hojas de cálculo en formatos ODS y XLSX. A continuación, se detalla la metodología recomendada para ejecutar los scripts, así como la estructura del proyecto y los requisitos necesarios.
+Este repositorio contiene scripts de Python diseñados para manipular hojas de cálculo en formatos CSV, ODS y XLSX. Estos scripts están destinados a ser ejecutados manualmente, requiriendo una cuidadosa atención a los detalles. Su objetivo es ayudar a los usuarios avanzados a encontrar ejemplos prácticos de scripts de Python para operaciones con hojas de cálculo.
+
+A continuación, se detalla la metodología recomendada para ejecutar los scripts, así como la estructura del proyecto y los requisitos necesarios.
 
 ## Estructura del Proyecto
 
