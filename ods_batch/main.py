@@ -8,7 +8,17 @@ import ezodf
 
 def read_file(file_name):
     """
-    Reads an ODS file and returns its contents as a dictionary.
+    Reads an ODS file and returns its contents as a dictionary of DataFrames.
+
+    Processes each sheet in the ODS file, converting rows into DataFrames. Replaces `None`
+    values with empty strings to maintain data integrity. Handles file not found and read errors.
+
+    Args:
+        file_name (str): Name of the ODS file to read.
+
+    Returns:
+        dict: Keys are sheet names (str), values are pandas DataFrames. Returns None if the file
+        is not found or an error occurs during reading.
     """
     file_path = os.path.join(os.getcwd(), file_name)
     if os.path.exists(file_path):
@@ -35,7 +45,15 @@ def read_file(file_name):
 
 def write_ods(data, output_path, sheet_name):
     """
-    Writes data to an ODS file, converting large numbers to strings to avoid precision loss.
+    Writes a DataFrame to an ODS file, converting large numbers to strings to prevent precision loss.
+
+    Overwrites existing files without warning. Converts values over 1e+15 to strings to avoid
+    Excel/ODS precision limitations. Creates a single-sheet ODS file with the specified name.
+
+    Args:
+        data (pd.DataFrame): Data to write to the file.
+        output_path (str): Full path for the output ODS file.
+        sheet_name (str): Name of the sheet to create in the ODS file.
     """
     # Remove the existing file if it exists
     if os.path.exists(output_path):
@@ -64,7 +82,15 @@ def write_ods(data, output_path, sheet_name):
 
 def split_ods(file_name, max_rows=10000):
     """
-    Splits an ODS file into multiple smaller files with up to 'max_rows' rows each.
+    Splits an ODS file into multiple smaller ODS files based on row count.
+
+    Processes each sheet separately, creating multiple files per sheet when needed. Output files
+    are named with the original filename, sheet name, and a numerical suffix. Each output file
+    contains up to `max_rows` rows of data (header row excluded from count).
+
+    Args:
+        file_name (str): Path to the input ODS file.
+        max_rows (int, optional): Maximum rows per output file. Defaults to 10000.
     """
     # Read the ODS file
     data_dict = read_file(file_name)
@@ -84,7 +110,7 @@ def split_ods(file_name, max_rows=10000):
             # Slice the DataFrame
             slice_df = df.iloc[start_row:end_row]
             # Create a new filename for each slice
-            output_filename = f"{base_filename}_{sheet_name}_{i+1}.ods"
+            output_filename = f"{base_filename}_{sheet_name}_{i + 1}.ods"
             output_path = os.path.join(os.getcwd(), output_filename)
             # Write the slice to a new ODS file
             write_ods(slice_df, output_path, sheet_name)
