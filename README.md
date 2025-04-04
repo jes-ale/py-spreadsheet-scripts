@@ -41,7 +41,7 @@ pyenv local 3.11.9    # Sets for this directory only
 
 ## 2. Create and activate virtualenv
 ```bash
-python -m venv .venv
+pyenv exec python -m venv .venv/
 source .venv/bin/activate  # Linux/macOS
 # .venv\Scripts\activate   # Windows
 ```
