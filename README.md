@@ -31,46 +31,33 @@ A continuación, se detalla la metodología recomendada para ejecutar los script
 └── requirements.txt
 ```
 
-## Metodología para Ejecutar los Scripts
+# Python 3.11 Virtual Environment Setup
 
-1. **Requisitos Previos**: Asegúrate de tener Python 3 instalado en tu sistema. Puedes verificar la versión de Python ejecutando:
-   ```bash
-   python3 --version
-   ```
+## 1. Set Python 3.11 as local version
+```bash
+pyenv install 3.11.9  # Skip if already installed
+pyenv local 3.11.9    # Sets for this directory only
+```
 
-2. **Instalación de Dependencias**:
-   - **Crear un entorno virtual** (opcional pero recomendado):
-     ```bash
-     python -m venv venv
-     ```
-   - **Activar el entorno virtual**:
-     - En Windows:
-       ```bash
-       venv\Scripts\activate
-       ```
-     - En macOS y Linux:
-       ```bash
-       source venv/bin/activate
-       ```
-   - **Instalar las dependencias del proyecto**:
-     ```bash
-     pip install -r requirements.txt
-     ```
+## 2. Create and activate virtualenv
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+# .venv\Scripts\activate   # Windows
+```
 
-3. **Ejecutar los Scripts**:
-   - Navega a la carpeta del script que deseas ejecutar. Por ejemplo, para ejecutar el script en `mx_zip_colony`:
-     ```bash
-     cd mx_zip_colony
-     python main.py
-     ```
-   - Asegúrate de tener los archivos de hoja de cálculo necesarios en la ubicación correcta según lo especificado en cada script.
+## 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-## Notas Adicionales
+## 4. Run your application
+```bash
+cd mx_zip_colony && python main.py
+```
 
-- Cada carpeta de script contiene un archivo `README.md` que proporciona información específica sobre el script y su uso.
-- Se recomienda revisar la documentación de cada script para entender su funcionalidad y los parámetros que puede aceptar.
-
-## Contribuciones
-
-Si deseas contribuir a este proyecto, no dudes en abrir un issue o enviar un pull request. ¡Agradecemos cualquier mejora o sugerencia!
-
+## Switching Back
+```bash
+pyenv local system  # Revert to system Python
+deactivate         # Leave virtualenv
+```
